@@ -1,0 +1,109 @@
+<!doctype html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="static/screen.css">
+	<title>Twin Cities Maker</title>
+</head>
+<body>
+	<nav class='navbar navbar-dark bg-dark navbar-expand-lg'>
+	  <div class="navbar-brand">
+	    <a class="navbar-brand" href="/">Twin Cities Maker</a>
+	  </div>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+
+	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	    <ul class="navbar-nav ml-auto mr-4">
+	    </ul>
+	  </div>
+	</nav>
+
+	<div class="container">
+		<div class="row mt-4">
+			<nav class="col-md-2 mb-4">
+				<h5>Front Door</h5>
+				<ul class="nav flex-column">
+					<li class="nav-item"><a class="nav-link" href="" id="FrontDoorLock">Lock Door</a></li>
+					<li class="nav-item"><a class="nav-link" href="" id="FrontDoorUnlock">Unlock Door</a></li>
+				</ul>
+
+				<h5>Side Door</h5>
+				<ul class="nav flex-column">
+					<li class="nav-item"><a class="nav-link" href="" id="SideDoorLock">Lock Door</a></li>
+					<li class="nav-item"><a class="nav-link" href="" id="SideDoorUnlock">Unlock Door</a></li>
+				</ul>
+
+				<h5>Lock All Doors</h5>
+				<ul class="nav flex-column">
+					<li class="nav-item"><a class="nav-link" href="" id="SideDoorLock">Lock All Doors</a></li>
+				</ul>
+			</nav>
+			<div class="col-md-8 offset-md-1 mb-4">
+				<h1 class="mb-4">Door Control</h1>
+
+				<div class="row">
+					<div class="col-md-7">
+						<div class="card mb-4">
+							<div class="card-body">
+								<h5 class="card-title">Last Status Time</h5>
+								<div id="lastStatus">Unknown</div>
+							</div>
+						</div>
+
+						<h3>Add a Keyfob</h3>
+						<p class="small text-lighten">You should really use CiviCRM for this.</p>
+						<form id="addTag">
+							<div class="form-group">
+								<label for="tag">Input Tag Number</label>
+								<input type="text" name="tag" id="tag" class="form-control">
+								<small id="passwordHelpBlock" class="form-text text-muted">
+  								Remember to omit all leading zeros from the tag.
+								</small>
+							</div>
+							<div class="form-group">
+								<label for="priority">Priority</label>
+								<select class="custom-select" id="priority">
+									<option selected value="0">Priority 0 (No Access)</option>
+									<option value="1">Priority 1 (Standard Access)</option>
+									<option value="2">Priority 2</option>
+									<option value="3">Priority 3</option>
+									<option value="4">Priority 4</option>
+									<option value="5">Priority 5</option>
+									<option value="6">Priority 6</option>
+									<option value="7">Priority 7</option>
+									<option value="8">Priority 8</option>
+									<option value="9">Priority 9</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<input type="submit" value="Submit" id="tagSubmit"</input>
+							</div>
+						</form>
+					</div>
+
+					<div class="col-md-4 offset-md-1">
+						<ul class="list-group">
+							<li id="door1" class="list-group-item list-group-item-danger">Front Door is <strong>LOCKED</strong></li>
+							<li id="door2" class="list-group-item list-group-item-danger">Side Door is <strong>LOCKED</strong></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-12">
+						<h3>Door Controller Messages</h3>
+						<pre id="conmsg" class="bg-dark px-2" style="height: 24em; overflow-y:scroll;color:#0d0;">ROFLCOPER</pre>
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="/static/jquery.js"></script>
+	<script src="/static/custom.js"></script>
+</body>
+</html>
