@@ -46,8 +46,18 @@ port.on('open', function(err) {
 });
 
 parser.on('data', function(data) {
+  audit.message("myPort: received " + data);
+
   let messageType = data.slice(0,2);
   if (messageType == 'ST') { status.update(); }
+
+  var keypad = data.slice(0,2);  // R1 or R2
+  var door = data.slice(1,2);    // 1 or 2, corresponding to the keypad
+  var command = data.slice(2,3); // C == keypress; T == tag read
+  var commandValue = data.slice(3);  // keypad input or derived tag number
+
+
+  if (command == 'T') { datastore.getPriority(commandValue, doorNumber); }
 });
 
 
